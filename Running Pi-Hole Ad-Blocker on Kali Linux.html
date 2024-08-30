@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+        <title>Running Pi-Hole Ad-Blocker on Kali Linux</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="keywords" content="VirtualBox,Virtual Machine,Kali,i12bretro,How To,Tutorial,Pi-Hole,PiHole,DNS,Ad Blocker,Kali Linux,Unsupported OS">
+        <meta name="author" content="i12bretro">
+        <meta name="description" content="Running Pi-Hole Ad-Blocker on Kali Linux">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+				          <link rel="icon" type="image/x-icon" href="https://i12bretro.github.io/tutorials/includes/favicon.ico">
+				  <script type="text/javascript" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/jquery-3.5.1.min.js"></script>
+				        <script type="text/javascript" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/steps.js"></script>
+        <link href="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/steps.css" rel="stylesheet" type="text/css">
+      </head>
+      <body><div style="position: fixed; top: 15px; right: 15px; z-index: 100;"><button id="fontSizeUp">▲<span>A</span></button>&nbsp;&nbsp;<button id="fontSizeDown"><span>A</span>▼</button></div>
+        <div id="gridContainer">
+          <div class="topMargin"></div>
+          <div id="listName" class="topMargin">
+            <h1>Running Pi-Hole Ad-Blocker on Kali Linux</h1>
+          </div>
+          <div></div>
+          <div id="content" style="font-size: 100%;">
+          <p><em>NOTE: I'm running this installation inside a VirtualBox VM</em></p>
+
+<ol>
+	<li><input type="checkbox" class="completeBox" id="cb_li_509633_0" rel="li_509633_0" data-pi="0"><span id="li_509633_0"><label for="cb_li_509633_0">Click the Applications button &gt; Accessories &gt; Terminal</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_344743_1" rel="li_344743_1" data-pi="0"><span id="li_344743_1"><label for="cb_li_344743_1">Run the following commands to install updates
+	</label></span><span id="li_344743_1"><label for="cb_li_344743_1"><div class="codeBlock"><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="0" rel="copy_0_0"><span id="copy_0_0">sudo apt-get update<br></span><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="1" rel="copy_0_1"><span id="copy_0_1">	sudo apt-get upgrade<br></span><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="2" rel="copy_0_2"><span id="copy_0_2">	sudo apt-get clean<br></span><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="3" rel="copy_0_3"><span id="copy_0_3">	curl -sSL https://install.pi-hole.net | PIHOLE_SKIP_OS_CHECK=true sudo -E bash</span></div></label></span><span id="li_344743_1"><label for="cb_li_344743_1">
+	</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_343988_2" rel="li_343988_2" data-pi="0"><span id="li_343988_2"><label for="cb_li_343988_2">Press Enter until the DNS selection is displayed</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_173599_3" rel="li_173599_3" data-pi="0"><span id="li_173599_3"><label for="cb_li_173599_3">Select a DNS provider and press Enter</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_594942_4" rel="li_594942_4" data-pi="0"><span id="li_594942_4"><label for="cb_li_594942_4">Press Enter through the rest of the Pi-Hole installer, selecting the defaults</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_257725_5" rel="li_257725_5" data-pi="0"><span id="li_257725_5"><label for="cb_li_257725_5">Copy the randomly generated admin password (just in case)</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_70374_6" rel="li_70374_6" data-pi="0"><span id="li_70374_6"><label for="cb_li_70374_6">Press Enter to complete the installation</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_806116_7" rel="li_806116_7" data-pi="0"><span id="li_806116_7"><label for="cb_li_806116_7">Continue with the following commands
+	</label></span><span id="li_806116_7"><label for="cb_li_806116_7"><div class="codeBlock"># rebuild the pihole gravity.db<br><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="4" rel="copy_1_1"><span id="copy_1_1">	sudo pihole -g -r<br></span>	# check for updates<br><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="5" rel="copy_1_3"><span id="copy_1_3">	sudo pihole -up<br></span>	# change the pihole admin password<br><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="6" rel="copy_1_5"><span id="copy_1_5">	sudo pihole -a -p<br></span>	# repair the pihole installation<br><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="7" rel="copy_1_7"><span id="copy_1_7">	PIHOLE_SKIP_OS_CHECK=true sudo -E pihole -r</span></div></label></span><span id="li_806116_7"><label for="cb_li_806116_7">
+	</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_586098_8" rel="li_586098_8" data-pi="0"><span id="li_586098_8"><label for="cb_li_586098_8">Press&nbsp;Enter to repair and retain existing settings</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_172776_9" rel="li_172776_9" data-pi="0"><span id="li_172776_9"><label for="cb_li_172776_9">Continue with the following commands
+	</label></span><span id="li_172776_9"><label for="cb_li_172776_9"><div class="codeBlock"><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="8" rel="copy_2_0"><span id="copy_2_0">sudo nano /etc/lighttpd/lighttpd.conf</span></div></label></span><span id="li_172776_9"><label for="cb_li_172776_9">
+	</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_278371_10" rel="li_278371_10" data-pi="0"><span id="li_278371_10"><label for="cb_li_278371_10">Scrolldown and place a # before mod_compress to comment it out</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_145504_11" rel="li_145504_11" data-pi="0"><span id="li_145504_11"><label for="cb_li_145504_11">Press CTRL+O, Enter, CTRL+X to write the changes to lighttpd.conf</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_710437_12" rel="li_710437_12" data-pi="0"><span id="li_710437_12"><label for="cb_li_710437_12">Continue with the following commands
+	</label></span><span id="li_710437_12"><label for="cb_li_710437_12"><div class="codeBlock"># start lighttpd<br><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="9" rel="copy_3_1"><span id="copy_3_1">	sudo systemctl enable lighttpd<br></span><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="10" rel="copy_3_2"><span id="copy_3_2">	sudo systemctl start lighttpd<br></span>	# restart pihole DNS<br><input type="image" src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/clipboard.png" value="" class="copy-text" data-step-index="11" rel="copy_3_4"><span id="copy_3_4">	sudo pihole restartdns</span></div></label></span><span id="li_710437_12"><label for="cb_li_710437_12">
+	</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_348946_13" rel="li_348946_13" data-pi="0"><span id="li_348946_13"><label for="cb_li_348946_13">Open the Firefox&nbsp;web browser and navigate to about:config</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_762381_14" rel="li_762381_14" data-pi="0"><span id="li_762381_14"><label for="cb_li_762381_14">Click the Accept the Risk and Continue button</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_480142_15" rel="li_480142_15" data-pi="0"><span id="li_480142_15"><label for="cb_li_480142_15">Search for fallback</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_287771_16" rel="li_287771_16" data-pi="0"><span id="li_287771_16"><label for="cb_li_287771_16">Double click the browser.fixup.fallback-to-https to set the value to false</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_522117_17" rel="li_522117_17" data-pi="0"><span id="li_522117_17"><label for="cb_li_522117_17">Navigate to http://localhost/admin to reach the pi-hole web UI</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_452621_18" rel="li_452621_18" data-pi="0"><span id="li_452621_18"><label for="cb_li_452621_18">Click Login</label></span></li>
+	<li><input type="checkbox" class="completeBox" id="cb_li_84826_19" rel="li_84826_19" data-pi="0"><span id="li_84826_19"><label for="cb_li_84826_19">Authenticate with the admin password</label></span></li>
+</ol>
+
+<p>More on Pi-Hole <a href="https://pi-hole.net/" target="_blank">https://pi-hole.net/</a></p>
+          </div>
+        <div>&nbsp;</div><div id="footerLinks"><a href="https://discord.com/invite/EzenvmSHW8" target="_blank"><img src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/discord.png" alt="Join Us on Discord" title="Join Us on Discord"></a><a href="https://i12bretro.github.io/tutorials" target="_blank"><img src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/github.png" alt="i12bretro on Github" title="i12bretro on Github"></a><a href="https://reddit.com/r/i12bretro" target="_blank"><img src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/reddit.png" alt="Official Subreddit" title="Official Subreddit"></a><a href="https://twitter.com/i12bretro" target="_blank"><img src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/twitter.png" alt="Follow i12bretro on Twitter" title="Follow i12bretro on Twitter"></a><a href="https://i12bretro.wordpress.com/" target="_blank"><img src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/wordpress.png" alt="Official WordPress Site" title="Official WordPress Site"></a><a href="https://youtube.com/c/i12bretro" target="_blank"><img src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/youtube.png" alt="i12bretro on YouTube" title="i12bretro on YouTube"></a><a href="https://i12bretro.wordpress.com/tools/" target="_blank"><img src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/amazon.png" alt="i12bretro Tools, Gadgets and Peripherals" title="i12bretro Tools, Gadgets and Peripherals"></a><a href="https://i12bretro.wordpress.com/author/i12bretro/feed/" target="_blank"><img src="Running%20Pi-Hole%20Ad-Blocker%20on%20Kali%20Linux_files/rss.png" alt="i12bretro RSS Feed" title="i12bretro RSS Feed"></a></div></div>
+      
+    
+  </body></html>
